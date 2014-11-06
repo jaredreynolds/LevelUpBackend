@@ -15,15 +15,15 @@ namespace LevelUp.Database.Models.Mapping
             this.ToTable("Party");
             this.Property(t => t.PartyId).HasColumnName("PartyId");
             this.Property(t => t.QuestId).HasColumnName("QuestId");
-            this.Property(t => t.UserId).HasColumnName("UserId");
+            this.Property(t => t.HeroId).HasColumnName("HeroId");
 
             // Relationships
             this.HasRequired(t => t.Quest)
                 .WithMany(t => t.Parties)
                 .HasForeignKey(d => d.QuestId);
-            this.HasRequired(t => t.User)
+            this.HasRequired(t => t.Hero)
                 .WithMany(t => t.Parties)
-                .HasForeignKey(d => d.UserId);
+                .HasForeignKey(d => d.HeroId);
 
         }
     }

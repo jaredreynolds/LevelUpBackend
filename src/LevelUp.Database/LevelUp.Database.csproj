@@ -52,26 +52,30 @@
     <Compile Include="Migrations\201411062259155_InitialCreate.Designer.cs">
       <DependentUpon>201411062259155_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201411062338419_Renamed User to Hero.cs" />
+    <Compile Include="Migrations\201411062338419_Renamed User to Hero.Designer.cs">
+      <DependentUpon>201411062338419_Renamed User to Hero.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Achievement.cs" />
     <Compile Include="Models\Epic.cs" />
-    <Compile Include="Models\Epic_User.cs" />
+    <Compile Include="Models\Epic_Hero.cs" />
     <Compile Include="Models\LevelUpContext.cs" />
     <Compile Include="Models\Mapping\AchievementMap.cs" />
     <Compile Include="Models\Mapping\EpicMap.cs" />
-    <Compile Include="Models\Mapping\Epic_UserMap.cs" />
+    <Compile Include="Models\Mapping\Epic_HeroMap.cs" />
     <Compile Include="Models\Mapping\PartyMap.cs" />
     <Compile Include="Models\Mapping\QuestMap.cs" />
-    <Compile Include="Models\Mapping\Quest_UserMap.cs" />
+    <Compile Include="Models\Mapping\Quest_HeroMap.cs" />
     <Compile Include="Models\Mapping\TagMap.cs" />
     <Compile Include="Models\Mapping\UserMap.cs" />
-    <Compile Include="Models\Mapping\User_AchievementMap.cs" />
+    <Compile Include="Models\Mapping\Hero_AchievementMap.cs" />
     <Compile Include="Models\Party.cs" />
     <Compile Include="Models\Quest.cs" />
-    <Compile Include="Models\Quest_User.cs" />
+    <Compile Include="Models\Quest_Hero.cs" />
     <Compile Include="Models\Tag.cs" />
-    <Compile Include="Models\User.cs" />
-    <Compile Include="Models\User_Achievement.cs" />
+    <Compile Include="Models\Hero.cs" />
+    <Compile Include="Models\Hero_Achievement.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -82,6 +86,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201411062259155_InitialCreate.resx">
       <DependentUpon>201411062259155_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201411062338419_Renamed User to Hero.resx">
+      <DependentUpon>201411062338419_Renamed User to Hero.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

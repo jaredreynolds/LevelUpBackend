@@ -1,13 +1,12 @@
 using System;
-using System.Collections.Generic;
 
 namespace LevelUp.Database.Models
 {
-    public partial class Party
+    public partial class Quest_Hero
     {
-        public int PartyId { get; set; }
         public int QuestId { get; set; }
         public int HeroId { get; set; }
+        public DateTime? Completed { get; set; }
         public virtual Quest Quest { get; set; }
         public virtual Hero Hero { get; set; }
     }

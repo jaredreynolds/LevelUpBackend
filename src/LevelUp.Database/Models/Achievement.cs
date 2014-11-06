@@ -7,7 +7,7 @@ namespace LevelUp.Database.Models
     {
         public Achievement()
         {
-            this.User_Achievement = new List<User_Achievement>();
+            this.Hero_Achievement = new List<Hero_Achievement>();
             this.Tags = new List<Tag>();
             this.Epics = new List<Epic>();
             this.Quests = new List<Quest>();
@@ -21,7 +21,7 @@ namespace LevelUp.Database.Models
         public byte[] Image { get; set; }
         public string ImageUrl { get; set; }
         public string QRCodeText { get; set; }
-        public virtual ICollection<User_Achievement> User_Achievement { get; set; }
+        public virtual ICollection<Hero_Achievement> Hero_Achievement { get; set; }
         public virtual ICollection<Tag> Tags { get; set; }
         public virtual ICollection<Epic> Epics { get; set; }
         public virtual ICollection<Quest> Quests { get; set; }

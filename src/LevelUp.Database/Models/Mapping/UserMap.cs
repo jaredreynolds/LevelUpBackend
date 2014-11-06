@@ -3,26 +3,26 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace LevelUp.Database.Models.Mapping
 {
-    public class UserMap : EntityTypeConfiguration<User>
+    public class HeroMap : EntityTypeConfiguration<Hero>
     {
-        public UserMap()
+        public HeroMap()
         {
             // Primary Key
-            this.HasKey(t => t.UserId);
+            this.HasKey(t => t.HeroId);
 
             // Properties
             this.Property(t => t.Name)
                 .IsRequired()
                 .HasMaxLength(250);
 
-            this.Property(t => t.Gravatar)
+            this.Property(t => t.GravatarUrl)
                 .HasMaxLength(1024);
 
             // Table & Column Mappings
-            this.ToTable("User");
-            this.Property(t => t.UserId).HasColumnName("UserId");
+            this.ToTable("Hero");
+            this.Property(t => t.HeroId).HasColumnName("HeroId");
             this.Property(t => t.Name).HasColumnName("Name");
-            this.Property(t => t.Gravatar).HasColumnName("Gravatar");
+            this.Property(t => t.GravatarUrl).HasColumnName("GravatarUrl");
         }
     }
 }
