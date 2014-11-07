@@ -98,7 +98,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="default.htm" />
-    <Content Include="jqunback-1.51.min.js" />
     <Content Include="README.txt" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -108,6 +107,9 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="App_Start\WebServiceExamples.cs" />
+    <Compile Include="LevelUp\Achievements\Achievement.cs" />
+    <Compile Include="LevelUp\Achievements\AchievementsRequest.cs" />
+    <Compile Include="LevelUp\Achievements\AchievementsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
