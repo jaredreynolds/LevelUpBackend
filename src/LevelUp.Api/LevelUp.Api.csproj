@@ -106,7 +106,6 @@
     <Compile Include="App_Start\PageBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="App_Start\WebServiceExamples.cs" />
     <Compile Include="LevelUp\Achievements\Achievement.cs" />
     <Compile Include="LevelUp\Achievements\AchievementsRepository.cs" />
     <Compile Include="LevelUp\Achievements\AchievementsRequest.cs" />
