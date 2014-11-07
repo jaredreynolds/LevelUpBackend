@@ -275,6 +275,79 @@ namespace LevelUp.Database
                 db.Achievements.AddOrUpdate(a => a.Title, achievement);
             }
 
+
+            foreach (var achievement in new[]
+                {
+                    new Achievement {Title = "Maple leaf of Absence", Description = "Physically attend a meeting in Seattle and Toronto within 24 hours"},
+                    new Achievement {Title = "Around the World in 80 Days", Description = "Attend a meeting on 3 continents within 80 days."},
+                    new Achievement {Title = "Almost Infinity Miles Per Gallon", Description = "ride your bike to work."}
+                })
+            {
+                achievement.Type = "Personal";
+                achievement.Tags.Add(tagOrganization);
+                db.Achievements.AddOrUpdate(a => a.Title, achievement);
+            }
+
+            foreach (var achievement in new[]
+                {
+                    new Achievement {Title = "The 1%", Description = "Participate in the 401(k)"},
+                    new Achievement {Title = "I wouldn't say I was missing it Bob", Description = "End your year with no Vacation or PTO left"},
+                    new Achievement {Title = "Perfect Attendance", Description = "Take NO vacation, PTO, or sick leave in a year"},
+                    new Achievement {Title = "Outbroken", Description = "You got your flu shot"}
+                })
+            {
+                achievement.Type = "Personal";
+                achievement.Tags.Add(tagBenefits);
+                db.Achievements.AddOrUpdate(a => a.Title, achievement);
+            }
+
+            foreach (var achievement in new[]
+                {
+                    new Achievement {Title = "The Beatings will Continue", Description = "suggest a morale event"},
+                    new Achievement {Title = "Until Morale Improves", Description = "Attend a Morale Event"},
+                    new Achievement {Title = "I am Invincible", Description = "win a morale event or team building competition"},
+                    new Achievement {Title = "Boss Monster", Description = "Defeat a VP in a morale or company event competition"},
+                    new Achievement {Title = "Mini-Boss", Description = "Defeat a manager in a morale or company event competition"},
+                    new Achievement {Title = "No Beer Steve", Description = "Keep Steve Sober at a morale event"},
+                    new Achievement {Title = "3 Beer Steve", Description = "A quire an extra drink ticket at a morale event"},
+                    new Achievement {Title = "Teetotaler", Description = "go one year without drinking at a morale event"}
+                })
+            {
+                achievement.Type = "Personal";
+                achievement.Tags.Add(tagTeamBuilding);
+                db.Achievements.AddOrUpdate(a => a.Title, achievement);
+
+            }
+
+
+            foreach (var achievement in new[]
+                {
+                    new Achievement {Title = "Vampire Victim", Description = "Donate Blood"},
+                    new Achievement {Title = "Civically Minded", Description = "Voted"},
+                    new Achievement {Title = "You want me to work for free", Description = "Volunteer"},
+                    new Achievement {Title = "I'd like to teach the world to sing", Description = "Entire Team or Engineering Org volunteers together"}
+                })
+            {
+                achievement.Type = "Personal";
+                achievement.Tags.Add(tagCivic);
+                db.Achievements.AddOrUpdate(a => a.Title, achievement);
+            }
+            foreach (var achievement in new[]
+                {
+                    new Achievement {Title = "That's Quality", Description = "No Hotfixes for two releases"},
+                    new Achievement {Title = "That's it, thank you, we're done", Description = "Complete a Planned release on the originally estimated time"},
+                    new Achievement {Title = "I feel the need, the need for speed", Description = "beat your average velocity for an iteration (or 2, or a release)"},
+                    new Achievement {Title = "We can rebuild it, make it stronger", Description = "form a new team"},
+                    new Achievement {Title = "Fib…..onacci", Description = "horribly underpoint a story"},
+                    new Achievement {Title = "Drano", Description = "no stories blocked during an iteration"},
+                })
+            {
+                achievement.Type = "Personal";
+                achievement.Tags.Add(tagTeam);
+                db.Achievements.AddOrUpdate(a => a.Title, achievement);
+            }
+
+
             SeedHeroes(db);
         }
 
