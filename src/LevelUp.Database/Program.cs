@@ -49,42 +49,29 @@ namespace LevelUp.Database
 
         private static void SeedData(LevelUpContext db)
         {
-            var tagDev = new Tag { Name = "Dev" };
-            var tagTest = new Tag { Name = "Test" };
-            var tagTraining = new Tag {Name = "Training"};
-            var tagTools = new Tag {Name = "Tools/Tech"};
-            var tagHackday = new Tag {Name = "Hackday"};
-            var tagCommunity = new Tag {Name = "Community Involvement"};
-            var tagHelping = new Tag {Name = "Helping Others"};
-            var tagRecruitment = new Tag {Name = "Recruitment"};
-            var tagOops = new Tag {Name = "Oops"};
-            var tagAwesome = new Tag {Name = "Awesome"};
-            var tagAnniversary = new Tag {Name = "Anniversary"};
-            var tagOther = new Tag {Name = "Other"};
-            var tagTeam = new Tag {Name = "Team"};
-            var tagTeamBuilding = new Tag {Name = "Team Building"};
-            var tagCivic = new Tag {Name = "Civic"};
-            var tagBenefits = new Tag {Name = "Benefits"};
-            var tagOrganization = new Tag {Name = "Organization"};
-            db.Tags.AddOrUpdate(t => t.Name,
-                tagDev,
-                tagTest,
-                tagTraining,
-                tagTools,
-                tagHackday,
-                tagCommunity,
-                tagHelping,
-                tagRecruitment,
-                tagOops,
-                tagAwesome,
-                tagAnniversary,
-                tagOther,
-                tagTeam,
-                tagTeamBuilding,
-                tagCivic,
-                tagBenefits,
-                tagOrganization
-            );
+            foreach (var tag in new[]
+                {
+                    "Dev",
+                    "Test",
+                    "Training",
+                    "Tools/Tech",
+                    "Hackday",
+                    "Community Involvement",
+                    "Helping Others",
+                    "Recruitment",
+                    "Oops",
+                    "Awesome",
+                    "Anniversary",
+                    "Other",
+                    "Team",
+                    "Team Building",
+                    "Civic",
+                    "Benefits",
+                    "Organization"
+                })
+            {
+                db.Tags.AddOrUpdate(new Tag {Name = tag});
+            }
 
             foreach (var achievement in new[]
                 {
@@ -97,7 +84,7 @@ namespace LevelUp.Database
                 })
             {
                 achievement.Type = "Personal";
-                achievement.Tags.Add(tagDev);
+                achievement.Tags.Add(db.Tags.First(t => t.Name == "Dev"));
                 db.Achievements.AddOrUpdate(a => a.Title, achievement);
             }
 
@@ -112,7 +99,7 @@ namespace LevelUp.Database
                 })
             {
                 achievement.Type = "Personal";
-                achievement.Tags.Add(tagTest);
+                achievement.Tags.Add(db.Tags.First(t => t.Name == "Test"));
                 db.Achievements.AddOrUpdate(a => a.Title, achievement);
             }
 
@@ -138,7 +125,7 @@ namespace LevelUp.Database
                 })
             {
                 achievement.Type = "Personal";
-                achievement.Tags.Add(tagTraining);
+                achievement.Tags.Add(db.Tags.First(t => t.Name == "Training"));
                 db.Achievements.AddOrUpdate(a => a.Title, achievement);
             }
 
@@ -153,7 +140,7 @@ namespace LevelUp.Database
                 })
             {
                 achievement.Type = "Personal";
-                achievement.Tags.Add(tagTools);
+                achievement.Tags.Add(db.Tags.First(t => t.Name == "Tools/Tech"));
                 db.Achievements.AddOrUpdate(a => a.Title, achievement);
             }
 
@@ -168,7 +155,7 @@ namespace LevelUp.Database
                 })
             {
                 achievement.Type = "Personal";
-                achievement.Tags.Add(tagCommunity);
+                achievement.Tags.Add(db.Tags.First(t => t.Name == "Community Involvement"));
                 db.Achievements.AddOrUpdate(a => a.Title, achievement);
             }
 
@@ -181,7 +168,7 @@ namespace LevelUp.Database
                 })
             {
                 achievement.Type = "Personal";
-                achievement.Tags.Add(tagHackday);
+                achievement.Tags.Add(db.Tags.First(t => t.Name == "Hackday"));
                 db.Achievements.AddOrUpdate(a => a.Title, achievement);
             }
 
@@ -197,7 +184,7 @@ namespace LevelUp.Database
                 })
             {
                 achievement.Type = "Personal";
-                achievement.Tags.Add(tagHelping);
+                achievement.Tags.Add(db.Tags.First(t => t.Name == "Helping Others"));
                 db.Achievements.AddOrUpdate(a => a.Title, achievement);
             }
 
@@ -215,7 +202,7 @@ namespace LevelUp.Database
                 })
             {
                 achievement.Type = "Personal";
-                achievement.Tags.Add(tagRecruitment);
+                achievement.Tags.Add(db.Tags.First(t => t.Name == "Recruitment"));
                 db.Achievements.AddOrUpdate(a => a.Title, achievement);
             }
 
@@ -230,7 +217,7 @@ namespace LevelUp.Database
                 })
             {
                 achievement.Type = "Personal";
-                achievement.Tags.Add(tagOops);
+                achievement.Tags.Add(db.Tags.First(t => t.Name == "Oops"));
                 db.Achievements.AddOrUpdate(a => a.Title, achievement);
             }
 
@@ -243,7 +230,7 @@ namespace LevelUp.Database
                 })
             {
                 achievement.Type = "Personal";
-                achievement.Tags.Add(tagAwesome);
+                achievement.Tags.Add(db.Tags.First(t => t.Name == "Awesome"));
                 db.Achievements.AddOrUpdate(a => a.Title, achievement);
             }
 
@@ -258,7 +245,7 @@ namespace LevelUp.Database
                 })
             {
                 achievement.Type = "Personal";
-                achievement.Tags.Add(tagAnniversary);
+                achievement.Tags.Add(db.Tags.First(t => t.Name == "Anniversary"));
                 db.Achievements.AddOrUpdate(a => a.Title, achievement);
             }
 
@@ -271,7 +258,7 @@ namespace LevelUp.Database
                 })
             {
                 achievement.Type = "Personal";
-                achievement.Tags.Add(tagOther);
+                achievement.Tags.Add(db.Tags.First(t => t.Name == "Other"));
                 db.Achievements.AddOrUpdate(a => a.Title, achievement);
             }
 
@@ -284,7 +271,7 @@ namespace LevelUp.Database
                 })
             {
                 achievement.Type = "Personal";
-                achievement.Tags.Add(tagOrganization);
+                achievement.Tags.Add(db.Tags.First(t => t.Name == "Organization"));
                 db.Achievements.AddOrUpdate(a => a.Title, achievement);
             }
 
@@ -297,7 +284,7 @@ namespace LevelUp.Database
                 })
             {
                 achievement.Type = "Personal";
-                achievement.Tags.Add(tagBenefits);
+                achievement.Tags.Add(db.Tags.First(t => t.Name == "Benefits"));
                 db.Achievements.AddOrUpdate(a => a.Title, achievement);
             }
 
@@ -314,7 +301,7 @@ namespace LevelUp.Database
                 })
             {
                 achievement.Type = "Personal";
-                achievement.Tags.Add(tagTeamBuilding);
+                achievement.Tags.Add(db.Tags.First(t => t.Name == "Team Building"));
                 db.Achievements.AddOrUpdate(a => a.Title, achievement);
 
             }
@@ -329,7 +316,7 @@ namespace LevelUp.Database
                 })
             {
                 achievement.Type = "Personal";
-                achievement.Tags.Add(tagCivic);
+                achievement.Tags.Add(db.Tags.First(t => t.Name == "Civic"));
                 db.Achievements.AddOrUpdate(a => a.Title, achievement);
             }
             foreach (var achievement in new[]
@@ -343,7 +330,7 @@ namespace LevelUp.Database
                 })
             {
                 achievement.Type = "Personal";
-                achievement.Tags.Add(tagTeam);
+                achievement.Tags.Add(db.Tags.First(t => t.Name == "Team"));
                 db.Achievements.AddOrUpdate(a => a.Title, achievement);
             }
 
