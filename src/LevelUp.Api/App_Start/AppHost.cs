@@ -1,9 +1,6 @@
-using System.Configuration;
+using LevelUp.Api.LevelUp.Achievements;
+using LevelUp.Database.Models;
 using ServiceStack;
-using ServiceStack.Auth;
-using ServiceStack.Configuration;
-using ServiceStack.Data;
-using ServiceStack.OrmLite;
 
 [assembly: WebActivator.PreApplicationStartMethod(typeof(LevelUp.Api.App_Start.AppHost), "Start")]
 
@@ -20,7 +17,7 @@ namespace LevelUp.Api.App_Start
 	public class AppHost : AppHostBase
 	{		
 		public AppHost() //Tell ServiceStack the name and where to find your web services
-			: base("StarterTemplate ASP.NET Host", typeof(HelloService).Assembly) { }
+			: base("StarterTemplate ASP.NET Host", typeof(AchievementsService).Assembly) { }
 
 		public override void Configure(Funq.Container container)
 		{
@@ -28,10 +25,7 @@ namespace LevelUp.Api.App_Start
 			ServiceStack.Text.JsConfig.EmitCamelCaseNames = true;
 		
 			//Configure User Defined REST Paths
-			Routes
-			  .Add<Hello>("/hello")
-			  .Add<Hello>("/hello/{Name*}");
-
+			
 			//Uncomment to change the default ServiceStack configuration
             //SetConfig(new HostConfig {
             //});
@@ -40,35 +34,9 @@ namespace LevelUp.Api.App_Start
 			//ConfigureAuth(container);
 
 			//Register all your dependencies
-			container.Register(new TodoRepository());			
-		}
-
-		/* Example ServiceStack Authentication and CustomUserSession */
-		private void ConfigureAuth(Funq.Container container)
-		{
-			var appSettings = new AppSettings();
-
-			//Default route: /auth/{provider}
-			Plugins.Add(new AuthFeature(() => new CustomUserSession(),
-				new IAuthProvider[] {
-					new CredentialsAuthProvider(appSettings), 
-					new FacebookAuthProvider(appSettings), 
-					new TwitterAuthProvider(appSettings), 
-					new BasicAuthProvider(appSettings), 
-				})); 
-
-			//Default route: /register
-			Plugins.Add(new RegistrationFeature()); 
-
-			//Requires ConnectionString configured in Web.Config
-			var connectionString = ConfigurationManager.ConnectionStrings["AppDb"].ConnectionString;
-			container.Register<IDbConnectionFactory>(c =>
-				new OrmLiteConnectionFactory(connectionString, SqlServerDialect.Provider));
-
-			container.Register<IUserAuthRepository>(c =>
-				new OrmLiteAuthRepository(c.Resolve<IDbConnectionFactory>()));
-
-            container.Resolve<IUserAuthRepository>().InitSchema();
+		    container.Register(new LevelUpContext());
+            container.RegisterAutoWired<AchievementsRepository>();
+            container.RegisterAutoWired<AchievementsService>();
 		}
 
 		public static void Start()
