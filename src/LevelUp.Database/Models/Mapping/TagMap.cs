@@ -8,16 +8,11 @@ namespace LevelUp.Database.Models.Mapping
         public TagMap()
         {
             // Primary Key
-            this.HasKey(t => t.Tag1);
+            this.HasKey(t => t.Name);
 
             // Properties
-            this.Property(t => t.Tag1)
-                .IsRequired()
+            this.Property(t => t.Name)
                 .HasMaxLength(150);
-
-            // Table & Column Mappings
-            this.ToTable("Tag");
-            this.Property(t => t.Tag1).HasColumnName("Tag");
         }
     }
 }
