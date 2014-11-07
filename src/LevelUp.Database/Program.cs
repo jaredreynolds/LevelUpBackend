@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.Entity;
+using System.Diagnostics;
+using System.Globalization;
 using LevelUp.Database.Models;
+using Configuration = LevelUp.Database.Migrations.Configuration;
 
 namespace LevelUp.Database
 {
@@ -11,12 +11,60 @@ namespace LevelUp.Database
     {
         static void Main(string[] args)
         {
-            using (var db = new LevelUpContext())
+            try
             {
+                System.Data.Entity.Database.SetInitializer(new MigrateDatabaseToLatestVersion<LevelUpContext, Configuration>());
+
+                using (var db = new LevelUpContext())
+                {
+                    var mode = GetMode(db);
+
+                    if (mode != Mode.Skip)
+                    {
+                        db.Database.CreateIfNotExists();
+
+                        db.Achievements.Add(new Achievement {Title = "Write some code", Type = "Personal", Points = 1});
+                        db.SaveChanges();
+                    }
+                }
+
+                Console.WriteLine("Creation/migration complete!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
             }
 
-            Console.WriteLine("Press any key to exit...");
-            Console.ReadKey();
+            if (Debugger.IsAttached)
+            {
+                Console.WriteLine("Press any key to continue . . .");
+                Console.ReadKey();
+            }
+        }
+
+        private static Mode GetMode(LevelUpContext db)
+        {
+            if (db.Database.Exists())
+            {
+                Console.WriteLine("Do you want to migrate your LevelUp database to the latest version? [y/N] ");
+                if (Console.ReadKey(true).KeyChar.ToString(CultureInfo.InvariantCulture).ToLower() == "y")
+                {
+                    Console.WriteLine("Migrating...");
+                    return Mode.Migrate;
+                }
+                return Mode.Skip;
+            }
+
+            Console.WriteLine("Creating database...");
+
+            return Mode.Create;
+        }
+
+        private enum Mode
+        {
+            Create,
+            Migrate,
+            Skip
         }
     }
 }

@@ -1,18 +1,15 @@
+using System.Data.Entity.Migrations;
+
 namespace LevelUp.Database.Migrations
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
-
-    internal sealed class Configuration : DbMigrationsConfiguration<LevelUp.Database.Models.LevelUpContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Models.LevelUpContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(LevelUp.Database.Models.LevelUpContext context)
+        protected override void Seed(Models.LevelUpContext context)
         {
             //  This method will be called after migrating to the latest version.
 
