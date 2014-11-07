@@ -73,6 +73,8 @@ namespace LevelUp.Database
                 db.Tags.AddOrUpdate(new Tag {Name = tag});
             }
 
+            db.SaveChanges();
+
             foreach (var achievement in new[]
                 {
                     new Achievement {Title = "Pull!", Description = "Complete first pull request."},
@@ -349,6 +351,7 @@ namespace LevelUp.Database
                 new Hero { Name = "Jon Schnur" },
                 new Hero { Name = "Stephen Fowler" }
                 );
+            db.SaveChanges();
         }
 
         private static void SeedHeroAchievements(LevelUpContext db)
