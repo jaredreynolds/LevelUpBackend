@@ -4,7 +4,7 @@ using ServiceStack;
 namespace LevelUp.Api.LevelUp.Achievements
 {
     [Route("/achievements", Verbs = "GET")]
-    public class AchievementsRequest: IReturn<IList<Achievement>>
+    public class AchievementsRequest: IReturn<IEnumerable<Achievement>>
     {
         
     }

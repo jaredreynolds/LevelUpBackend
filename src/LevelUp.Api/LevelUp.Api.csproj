@@ -108,6 +108,7 @@
     </Compile>
     <Compile Include="App_Start\WebServiceExamples.cs" />
     <Compile Include="LevelUp\Achievements\Achievement.cs" />
+    <Compile Include="LevelUp\Achievements\AchievementsRepository.cs" />
     <Compile Include="LevelUp\Achievements\AchievementsRequest.cs" />
     <Compile Include="LevelUp\Achievements\AchievementsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -120,6 +121,12 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LevelUp.Database\LevelUp.Database.csproj">
+      <Project>{c71fa5a8-9b60-45ef-be06-b161a5bbca82}</Project>
+      <Name>LevelUp.Database</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
