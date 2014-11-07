@@ -101,6 +101,7 @@ namespace LevelUp.Database
                 db.Achievements.AddOrUpdate(a => a.Title, achievement);
             }
 
+<<<<<<< HEAD
             foreach (var achievement in new[]
                 {
                     new Achievement {Title = "Assert(true)", Description = "Write an automated test"},
@@ -274,7 +275,7 @@ namespace LevelUp.Database
                 achievement.Tags.Add(tagOther);
                 db.Achievements.AddOrUpdate(a => a.Title, achievement);
             }
-
+=======
             SeedHeroes(db);
         }
 
@@ -289,6 +290,7 @@ namespace LevelUp.Database
                 new Hero { Name = "Jon Schnur" },
                 new Hero { Name = "Stephen Fowler" }
                 );
+>>>>>>> 24792c602435de1a01afab6c14e8d7c34ffabf82
         }
 
         private static Mode GetMode(LevelUpContext db)
