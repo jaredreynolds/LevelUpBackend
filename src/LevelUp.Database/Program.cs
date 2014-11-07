@@ -334,8 +334,8 @@ namespace LevelUp.Database
                 db.Achievements.AddOrUpdate(a => a.Title, achievement);
             }
 
-
             SeedHeroes(db);
+            SeedHeroAchievements(db);
         }
 
         private static void SeedHeroes(LevelUpContext db)
@@ -349,6 +349,28 @@ namespace LevelUp.Database
                 new Hero { Name = "Jon Schnur" },
                 new Hero { Name = "Stephen Fowler" }
                 );
+        }
+
+        private static void SeedHeroAchievements(LevelUpContext db)
+        {
+            var hero = db.Heroes.First(h => h.Name == "Jared Reynolds");
+            hero.Achievements.Add(db.Achievements.First(a => a.Title == "Pull!"));
+            hero.Achievements.Add(db.Achievements.First(a => a.Title == "Fib…..onacci"));
+            hero.Achievements.Add(db.Achievements.First(a => a.Title == "That's Quality"));
+
+            hero = db.Heroes.First(h => h.Name == "Jon Schnur");
+            hero.Achievements.Add(db.Achievements.First(a => a.Title == "Pull!"));
+            hero.Achievements.Add(db.Achievements.First(a => a.Title == "Vampire Victim"));
+            hero.Achievements.Add(db.Achievements.First(a => a.Title == "3 Beer Steve"));
+            hero.Achievements.Add(db.Achievements.First(a => a.Title == "I'm a PC"));
+
+            hero = db.Heroes.First(h => h.Name == "Aaron Schmitt");
+            hero.Achievements.Add(db.Achievements.First(a => a.Title == "Trailblazer"));
+            hero.Achievements.Add(db.Achievements.First(a => a.Title == "Mini-Boss"));
+
+            hero = db.Heroes.First(h => h.Name == "Brian Lenihan");
+            hero.Achievements.Add(db.Achievements.First(a => a.Title == "Steve-o noooooo"));
+            hero.Achievements.Add(db.Achievements.First(a => a.Title == "Drano"));
         }
 
         private static Mode GetMode(LevelUpContext db)
