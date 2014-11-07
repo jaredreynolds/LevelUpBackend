@@ -1,4 +1,5 @@
 using LevelUp.Api.LevelUp.Achievements;
+using LevelUp.Api.LevelUp.Heroes;
 using LevelUp.Database.Models;
 using ServiceStack;
 
@@ -46,6 +47,8 @@ namespace LevelUp.Api.App_Start
             container.Register(new LevelUpContext());
             container.RegisterAutoWired<AchievementsRepository>();
             container.RegisterAutoWired<AchievementsService>();
+            container.RegisterAutoWired<HeroService>();
+            container.RegisterAutoWired<HeroesRepository>();
         }
 
         public static void Start()

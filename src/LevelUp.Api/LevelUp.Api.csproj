@@ -103,13 +103,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\AppHost.cs" />
-    <Compile Include="App_Start\PageBase.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="LevelUp\Achievements\Achievement.cs" />
     <Compile Include="LevelUp\Achievements\AchievementsRepository.cs" />
     <Compile Include="LevelUp\Achievements\AchievementsRequest.cs" />
     <Compile Include="LevelUp\Achievements\AchievementsService.cs" />
+    <Compile Include="LevelUp\Heroes\Hero.cs" />
+    <Compile Include="LevelUp\Heroes\HeroesRepository.cs" />
+    <Compile Include="LevelUp\Heroes\HeroesRequest.cs" />
+    <Compile Include="LevelUp\Heroes\HeroService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -127,6 +128,7 @@
       <Name>LevelUp.Database</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
