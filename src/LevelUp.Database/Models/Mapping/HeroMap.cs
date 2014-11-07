@@ -17,12 +17,6 @@ namespace LevelUp.Database.Models.Mapping
 
             this.Property(t => t.GravatarUrl)
                 .HasMaxLength(1024);
-
-            // Table & Column Mappings
-            this.ToTable("Hero");
-            this.Property(t => t.HeroId).HasColumnName("HeroId");
-            this.Property(t => t.Name).HasColumnName("Name");
-            this.Property(t => t.GravatarUrl).HasColumnName("GravatarUrl");
         }
     }
 }

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 
 namespace LevelUp.Database.Models
@@ -7,10 +6,10 @@ namespace LevelUp.Database.Models
     {
         public Achievement()
         {
-            this.Hero_Achievement = new List<Hero_Achievement>();
-            this.Tags = new List<Tag>();
-            this.Epics = new List<Epic>();
-            this.Quests = new List<Quest>();
+            Tags = new List<Tag>();
+            Epics = new List<Epic>();
+            Heroes = new List<Hero>();
+            Quests = new List<Quest>();
         }
 
         public int AchievementId { get; set; }
@@ -21,9 +20,9 @@ namespace LevelUp.Database.Models
         public byte[] Image { get; set; }
         public string ImageUrl { get; set; }
         public string QRCodeText { get; set; }
-        public virtual ICollection<Hero_Achievement> Hero_Achievement { get; set; }
         public virtual ICollection<Tag> Tags { get; set; }
         public virtual ICollection<Epic> Epics { get; set; }
+        public virtual ICollection<Hero> Heroes { get; set; } 
         public virtual ICollection<Quest> Quests { get; set; }
     }
 }

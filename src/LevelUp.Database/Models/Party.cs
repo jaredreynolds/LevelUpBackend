@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 namespace LevelUp.Database.Models
 {
     public partial class Party
