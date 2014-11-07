@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Data.Entity.Validation;
@@ -99,6 +100,21 @@ namespace LevelUp.Database
                 achievement.Tags.Add(tagDev);
                 db.Achievements.AddOrUpdate(a => a.Title, achievement);
             }
+
+            SeedHeroes(db);
+        }
+
+        private static void SeedHeroes(LevelUpContext db)
+        {
+            db.Heroes.AddOrUpdate(
+                h => h.Name,
+                new Hero { Name = "Aaron Schmitt" },
+                new Hero { Name = "Brian Lenihan" },
+                new Hero { Name = "Cliff Burger" },
+                new Hero { Name = "Jared Reynolds" },
+                new Hero { Name = "Jon Schnur" },
+                new Hero { Name = "Stephen Fowler" }
+                );
         }
 
         private static Mode GetMode(LevelUpContext db)
