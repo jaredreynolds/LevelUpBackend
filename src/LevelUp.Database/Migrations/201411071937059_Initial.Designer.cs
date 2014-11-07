@@ -13,7 +13,7 @@ namespace LevelUp.Database.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201411071900068_Initial"; }
+            get { return "201411071937059_Initial"; }
         }
         
         string IMigrationMetadata.Source
