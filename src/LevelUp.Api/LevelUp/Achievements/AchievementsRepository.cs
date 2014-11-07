@@ -22,19 +22,30 @@ namespace LevelUp.Api.LevelUp.Achievements
                 return Enumerable.Empty<Achievement>();
             }
 
-            return dbSet.Select(a =>
-                                                       new Achievement
-                                                           {
-                                                               AchievementId = a.AchievementId,
-                                                               Description = a.Description,
-                                                               Image = a.Image,
-                                                               ImageUrl = a.ImageUrl,
-                                                               Points = a.Points,
-                                                               QRCodeText = a.QRCodeText,
-                                                               Title = a.Title,
-                                                               Type = a.Type
-                                                           }
-                );
+            return dbSet.Select(MapAchievement);
+        }
+
+        public IEnumerable<Achievement> RetrieveByHero(int heroId)
+        {
+            return _levelUpContext
+                .Heroes
+                .First(h => h.HeroId == heroId)
+                .Achievements.Select(MapAchievement);
+        }
+
+        private static Achievement MapAchievement(Database.Models.Achievement a)
+        {
+            return new Achievement
+            {
+                AchievementId = a.AchievementId,
+                Description = a.Description,
+                Image = a.Image,
+                ImageUrl = a.ImageUrl,
+                Points = a.Points,
+                QRCodeText = a.QRCodeText,
+                Title = a.Title,
+                Type = a.Type
+            };
         }
     }
 }

@@ -15,5 +15,10 @@ namespace LevelUp.Api.LevelUp.Achievements
         {
             return _achievementsRepository.RetrieveAll(); 
         }
+
+        public object Get(AchievementByHeroRequest request)
+        {
+            return _achievementsRepository.RetrieveByHero(request.HeroId);
+        }
     }
 }
