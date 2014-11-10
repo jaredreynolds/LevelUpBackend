@@ -104,6 +104,7 @@
   <ItemGroup>
     <Compile Include="App_Start\AppHost.cs" />
     <Compile Include="LevelUp\Achievements\Achievement.cs" />
+    <Compile Include="LevelUp\Achievements\AchievementResponseObject.cs" />
     <Compile Include="LevelUp\Achievements\AchievementsRepository.cs" />
     <Compile Include="LevelUp\Achievements\AchievementsRequest.cs" />
     <Compile Include="LevelUp\Achievements\AchievementsService.cs" />
